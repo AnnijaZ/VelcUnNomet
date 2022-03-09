@@ -1,27 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//Jāizmortē, lai lietotu visus I interfeisus
+//Jāimporte, lai lietotu visus I interfeisus
 using UnityEngine.EventSystems;
 
 public class DragDropSkripts : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler {
 	//Velkamajam objektam piestiprinātā komponente
 	private CanvasGroup kanvasGrupa;
-	//Priekš pārvietojamā ojbekta atrašanās vietas uzglabāšanas
+	//Priekš pārvietojamā opbjekta atrašanās vietas uzglabāšanas
 	private RectTransform velkObjRectTransf;
 	//Norāde uz objektu skriptu
 	public Objekti objektuSkripts;
 
 	// Use this for initialization
 	void Start () {
-		//Piekļūst objekta piestripinātai CanvasGroup komponentei
+		//Piekļūst objekta piestiprinātajai CanvasGroup komponentei
 		kanvasGrupa = GetComponent<CanvasGroup>();
 		//Piekļūst objekta RectTransform komponentei
 		velkObjRectTransf = GetComponent<RectTransform>();
 	}
 
 	public void OnPointerDown(PointerEventData notikums){
-		Debug.Log ("Uzklikšķināts uz velkama objekta!");
+		Debug.Log ("Uzklikšināts uz velkama objekta!");
 	}
 
 	public void OnBeginDrag(PointerEventData notikums){
@@ -31,7 +31,7 @@ public class DragDropSkripts : MonoBehaviour, IPointerDownHandler, IBeginDragHan
 		//Lai objektam velkot iet cauri raycast stari
 		kanvasGrupa.blocksRaycasts = false;
 	}
-
+		
 	public void OnDrag(PointerEventData notikums){
 		Debug.Log ("Notiek vilkšana!");
 		//Maina objekta x, y koordinātas
@@ -39,21 +39,21 @@ public class DragDropSkripts : MonoBehaviour, IPointerDownHandler, IBeginDragHan
 	}
 
 	public void OnEndDrag(PointerEventData notikums){
-		Debug.Log ("Veikta objekta vilkšana!");
+		Debug.Log ("Beigta objekta vilkšana!");
 		kanvasGrupa.alpha = 1f;
 
-		//Ja objekts nebija nolikts īstajā vietā
+		//Ja objekts nebija nolikts ītajā vietā
 		if (objektuSkripts.vaiIstajaVieta == false) {
 			//Tad to atkal var vilkt
 			kanvasGrupa.blocksRaycasts = true;
-			//Ja nolikts īstajā vietā
+		
+			//Ja nolikts ītajā vietā
 		} else {
-			//Aizmirst pēdējo objektu, kas vilkts
-			objektuSkripts.pedejaisVilktais = null;
+			//Aizmirst pēdejo objektu, kas vilkts
+			objektuSkripts.pedejaisVIlktais = null;
 		}
-		//Ja viens objekts nolikts īstajā vietā, tad lai varētu turpināt vilkt pārējos
+		//Ja viens objekts nolikts īstajā vieta, tad lai varētu turpināt vilkt pārejos
 		//iestata uz false
 		objektuSkripts.vaiIstajaVieta = false;
-
 	}
 }
