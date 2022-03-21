@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PoguSkripts : MonoBehaviour {
-	//Nodrosina ainu parslegsanu, uzkliksinot uz pogu parsledzas ainas
+	//Nodrosina ainu parslegsanu, uzkliksinot uz pogu Sakt parsledzas uz ainu Pilseta
 	public void uzkliksinot (){
 		SceneManager.LoadScene("Pilseta");
 	}

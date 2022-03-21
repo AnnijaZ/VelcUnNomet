@@ -11,6 +11,16 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 	private Vector2 vietasIzm, velkObjIzm;
 	//Norāde uz Objekti skriptu
 	public Objekti objektuSkripts;
+	//Int tipa mainigais, kas skaitis, cik automasinas ir novietotas pareizaja vieta
+	public int parViet=0;
+
+	//Parbaude vai ir novietoti visi objekti savas vietas
+	public GameObject uzvarasLogs;
+	public void uzvara(){
+		if (parViet > 10) {
+			uzvarasLogs.SetActive (true);
+		}
+	}
 
 	//Nostrādās, ja objektu cenšas nomest uz jebkuras nomešanas  vietas
 	public void OnDrop(PointerEventData notikums){
@@ -48,46 +58,68 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 					switch (notikums.pointerDrag.tag) {
 					case "Atkritumi":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [1]);
+						parViet = parViet + 1;
+						uzvara ();
 						break;
 
 					case "Slimnica":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [2]);
+						parViet = parViet + 1;
+						uzvara ();
 						break;
 
 					case "Skola":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [3]);
+						parViet = parViet + 1;
+						uzvara ();
 						break;
 
 					case "Policija":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [4]);
+						parViet = parViet + 1;
+						uzvara ();
 						break;
 
 					case "Traktors1":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [5]);
+						parViet = parViet + 1;
+						uzvara ();
 						break;
 
 					case "Traktors5":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [6]);
+						parViet = parViet + 1;
+						uzvara ();
 						break;
 
 					case "Ungunsdzeseji":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [7]);
+						parViet = parViet + 1;
+						uzvara ();
 						break;
 
 					case "b2":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [8]);
+						parViet = parViet + 1;
+						uzvara ();
 						break;
 
 					case "Cementa":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [9]);
+						parViet = parViet + 1;
+						uzvara ();
 						break;
 
 					case "e46":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [10]);
+						parViet = parViet + 1;
+						uzvara ();
 						break;
 
 					case "Eskavators":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [11]);
+						parViet = parViet + 1;
+						uzvara ();
 						break;
 
 
