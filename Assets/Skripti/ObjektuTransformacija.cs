@@ -11,11 +11,11 @@ public class ObjektuTransformacija : MonoBehaviour {
 		if (objektuSkripts.pedejaisVIlktais != null) {
 			//Nospiežot Z taustiņu rotē pretēji pulksteņrādītāja virzienam
 			if (Input.GetKey (KeyCode.Z)) {
-				objektuSkripts.pedejaisVIlktais.GetComponent<RectTransform> ().Rotate (0, 0, Time.deltaTime * 9f);
+				objektuSkripts.pedejaisVIlktais.GetComponent<RectTransform> ().Rotate (0, 0, Time.deltaTime * 15f);
 			}
 			//Nospiežot X taustiņu rotē pulksteņrādītāja virzienā
 			if (Input.GetKey (KeyCode.X)) {
-				objektuSkripts.pedejaisVIlktais.GetComponent<RectTransform> ().Rotate (0, 0, -Time.deltaTime * 9f);
+				objektuSkripts.pedejaisVIlktais.GetComponent<RectTransform> ().Rotate (0, 0, -Time.deltaTime * 15f);
 			}
 
 
