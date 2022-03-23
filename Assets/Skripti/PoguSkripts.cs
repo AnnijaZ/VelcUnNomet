@@ -8,4 +8,8 @@ public class PoguSkripts : MonoBehaviour {
 	public void uzkliksinot (){
 		SceneManager.LoadScene("Pilseta");
 	}
+
+	public void atskakt (){
+		SceneManager.LoadScene("Izvelne");
+	}
 }

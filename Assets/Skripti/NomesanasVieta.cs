@@ -12,14 +12,39 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 	//Norāde uz Objekti skriptu
 	public Objekti objektuSkripts;
 	//Int tipa mainigais, kas skaitis, cik automasinas ir novietotas pareizaja vieta
-	public int parViet=0;
+	static public int parViet=0;
 
 	//Parbaude vai ir novietoti visi objekti savas vietas
-	public GameObject uzvarasLogs;
-	public void uzvara(){
+	public GameObject fons, zvaigzne1, zvaigzne2, zvaigzne3, atsakt, uzvara, laiks;
+	public void uzvareji(){
 		if (parViet > 10) {
-			uzvarasLogs.SetActive (true);
+			Taimeris.beidzis = true;
+			fons.SetActive(true);
+			atsakt.SetActive(true);
+			uzvara.SetActive(true);
+			laiks.SetActive(true);
+			if (Taimeris.zvaigznuMinutes < 2) {
+				zvaigzne1.SetActive(true);
+				zvaigzne2.SetActive(true);
+				zvaigzne3.SetActive(true);
+			}else if (Taimeris.zvaigznuMinutes >= 2 && Taimeris.zvaigznuMinutes < 3) {
+				zvaigzne1.SetActive(true);
+				zvaigzne3.SetActive(true);
+			}else{
+				zvaigzne2.SetActive(true);
+			}
 		}
+	}
+
+	void Start () {
+		fons.SetActive(false);
+		zvaigzne1.SetActive(false);
+		zvaigzne2.SetActive(false);
+		zvaigzne3.SetActive(false);
+		atsakt.SetActive(false);
+		uzvara.SetActive(false);
+		laiks.SetActive(false);
+		parViet = 0;
 	}
 
 	//Nostrādās, ja objektu cenšas nomest uz jebkuras nomešanas  vietas
@@ -54,72 +79,54 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 					notikums.pointerDrag.GetComponent<RectTransform> ().localScale
 					= GetComponent<RectTransform> ().localScale;
 
+					//skaita pareizos noliktos objektus lidz uzvarai
+					parViet = parViet + 1;
+					uzvareji ();
+
 					//Pārbauda tagu un atskaņo atbilstošo skaņas efektu
 					switch (notikums.pointerDrag.tag) {
 					case "Atkritumi":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [1]);
-						parViet = parViet + 1;
-						uzvara ();
 						break;
 
 					case "Slimnica":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [2]);
-						parViet = parViet + 1;
-						uzvara ();
 						break;
 
 					case "Skola":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [3]);
-						parViet = parViet + 1;
-						uzvara ();
 						break;
 
 					case "Policija":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [4]);
-						parViet = parViet + 1;
-						uzvara ();
 						break;
 
 					case "Traktors1":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [5]);
-						parViet = parViet + 1;
-						uzvara ();
 						break;
 
 					case "Traktors5":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [6]);
-						parViet = parViet + 1;
-						uzvara ();
 						break;
 
 					case "Ungunsdzeseji":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [7]);
-						parViet = parViet + 1;
-						uzvara ();
 						break;
 
 					case "b2":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [8]);
-						parViet = parViet + 1;
-						uzvara ();
 						break;
 
 					case "Cementa":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [9]);
-						parViet = parViet + 1;
-						uzvara ();
 						break;
 
 					case "e46":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [10]);
-						parViet = parViet + 1;
-						uzvara ();
 						break;
 
 					case "Eskavators":
 						objektuSkripts.skanasAvots.PlayOneShot (objektuSkripts.skanaKoAtskanot [11]);
-						parViet = parViet + 1;
-						uzvara ();
 						break;
 
 
